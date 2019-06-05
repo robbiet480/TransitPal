@@ -13,15 +13,20 @@ struct CardEventList : View {
     @EnvironmentObject var nfcRead: NFCReader
 
     var body: some View {
-
-        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092],
-                                                delegate: self.nfcRead, queue: nil)
-        readerSession?.alertMessage = "Hold your iPhone near an NFC transit card."
-        readerSession?.begin()
-
         return List(self.nfcRead.events.identified(by: \.id)) { event in
             CardActivityRow(event: event)
-        }.navigationBarTitle(Text("Clipper"))
+        }.navigationBarTitle(Text("TransitPal")).navigationBarItems(trailing: Button(action: {
+            self.startScan()
+        }) {
+            return Image(systemName: "magnifyingglass").fixedSize()
+        })
+    }
+
+    func startScan() {
+        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092],
+                                                delegate: self.nfcRead)
+        readerSession?.alertMessage = "Hold your iPhone near an NFC transit card."
+        readerSession?.begin()
     }
 }
 

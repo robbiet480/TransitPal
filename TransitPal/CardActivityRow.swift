@@ -13,11 +13,12 @@ struct CardActivityRow : View {
 
     var body: some View {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
         dateFormatter.doesRelativeDateFormatting = true
         let timestamp = dateFormatter.string(from: event.Timestamp)
         var exitTimestamp = ""
-        if let exit = event.ExitTimestamp {
+        if let exit = event.ExitTimestamp, exit != event.Timestamp {
             exitTimestamp = dateFormatter.string(from: exit)
         }
 
