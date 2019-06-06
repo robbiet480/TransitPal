@@ -1,5 +1,5 @@
 //
-//  ClipperEvent.swift
+//  TransitEvent.swift
 //  TransitPal
 //
 //  Created by Robert Trencheny on 6/5/19.
@@ -9,7 +9,8 @@
 import Foundation
 import SwiftUI
 
-class ClipperEvent: CustomDebugStringConvertible, Comparable, Identifiable {
+class TransitEvent: CustomDebugStringConvertible, Comparable, Identifiable {
+    var id = UUID()
     var Timestamp: Date = Date()
     var Agency: ClipperAgency = .Unknown
 
@@ -17,15 +18,11 @@ class ClipperEvent: CustomDebugStringConvertible, Comparable, Identifiable {
         return "Timestamp: \(self.Timestamp), Agency: \(self.Agency)"
     }
 
-    static func ==(lhs: ClipperEvent, rhs: ClipperEvent) -> Bool {
+    static func ==(lhs: TransitEvent, rhs: TransitEvent) -> Bool {
         return lhs.Agency == rhs.Agency && lhs.Timestamp == rhs.Timestamp
     }
 
-    static func <(lhs: ClipperEvent, rhs: ClipperEvent) -> Bool {
+    static func <(lhs: TransitEvent, rhs: TransitEvent) -> Bool {
         return lhs.Timestamp > rhs.Timestamp
-    }
-
-    var id: String {
-        return "\(self.Timestamp)-\(self.Agency)"
     }
 }

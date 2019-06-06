@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B63B88F522A7BCD900207C32 /* CardEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B88F422A7BCD900207C32 /* CardEventList.swift */; };
-		B640728522A7BAEA0059FB15 /* CardActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640728422A7BAEA0059FB15 /* CardActivityRow.swift */; };
-		B640728722A7BB760059FB15 /* ClipperEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640728622A7BB760059FB15 /* ClipperEvent.swift */; };
+		B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B88F422A7BCD900207C32 /* CardHistoryList.swift */; };
 		B6AF4A7222A73FBE00F9E005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */; };
 		B6AF4A7422A73FBE00F9E005 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */; };
-		B6AF4A7622A73FBE00F9E005 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A7522A73FBE00F9E005 /* ContentView.swift */; };
 		B6AF4A7822A73FC100F9E005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AF4A7722A73FC100F9E005 /* Assets.xcassets */; };
 		B6AF4A7B22A73FC100F9E005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AF4A7A22A73FC100F9E005 /* Preview Assets.xcassets */; };
 		B6AF4A7E22A73FC100F9E005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */; };
-		B6AF4A8722A7403E00F9E005 /* Mifare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8622A7403E00F9E005 /* Mifare.swift */; };
+		B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8622A7403E00F9E005 /* MiFare.swift */; };
 		B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8822A7412700F9E005 /* NFCReader.swift */; };
 		B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */; };
 		B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */; };
@@ -24,6 +21,14 @@
 		B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A9222A752D800F9E005 /* Utils.swift */; };
 		B6AF4AAC22A7762A00F9E005 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AF4AA022A7761000F9E005 /* PromiseKit.framework */; };
 		B6AF4AAD22A7762A00F9E005 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6AF4AA022A7761000F9E005 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */; };
+		B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */; };
+		B6E9DF1D22A8A1F100CA72D6 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */; };
+		B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7022A8562F00406986 /* TransitTag.swift */; };
+		B6F59C7322A8568200406986 /* TransitTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7222A8568200406986 /* TransitTrip.swift */; };
+		B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7422A8569200406986 /* TransitRefill.swift */; };
+		B6F59C7722A856BA00406986 /* TransitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7622A856BA00406986 /* TransitEvent.swift */; };
+		B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7822A856EA00406986 /* ClipperData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,25 +91,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B63B88F422A7BCD900207C32 /* CardEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEventList.swift; sourceTree = "<group>"; };
-		B640728422A7BAEA0059FB15 /* CardActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActivityRow.swift; sourceTree = "<group>"; };
-		B640728622A7BB760059FB15 /* ClipperEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperEvent.swift; sourceTree = "<group>"; };
+		B63B88F422A7BCD900207C32 /* CardHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHistoryList.swift; sourceTree = "<group>"; };
 		B6AF4A6E22A73FBE00F9E005 /* TransitPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6AF4A7522A73FBE00F9E005 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B6AF4A7722A73FC100F9E005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AF4A7A22A73FC100F9E005 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6AF4A7D22A73FC100F9E005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6AF4A7F22A73FC100F9E005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransitPal.entitlements; sourceTree = "<group>"; };
-		B6AF4A8622A7403E00F9E005 /* Mifare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mifare.swift; sourceTree = "<group>"; };
+		B6AF4A8622A7403E00F9E005 /* MiFare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiFare.swift; sourceTree = "<group>"; };
 		B6AF4A8822A7412700F9E005 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
 		B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperRefill.swift; sourceTree = "<group>"; };
 		B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTrip.swift; sourceTree = "<group>"; };
 		B6AF4A9022A7503A00F9E005 /* Data+Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Bytes.swift"; sourceTree = "<group>"; };
 		B6AF4A9222A752D800F9E005 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B6AF4A9622A7761000F9E005 /* PromiseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PromiseKit.xcodeproj; path = "../../../Downloads/PromiseKit-6.8.4/PromiseKit.xcodeproj"; sourceTree = "<group>"; };
+		B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEventRow.swift; sourceTree = "<group>"; };
+		B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTag.swift; sourceTree = "<group>"; };
+		B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitStation.swift; sourceTree = "<group>"; };
+		B6F59C7022A8562F00406986 /* TransitTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTag.swift; sourceTree = "<group>"; };
+		B6F59C7222A8568200406986 /* TransitTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTrip.swift; sourceTree = "<group>"; };
+		B6F59C7422A8569200406986 /* TransitRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitRefill.swift; sourceTree = "<group>"; };
+		B6F59C7622A856BA00406986 /* TransitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEvent.swift; sourceTree = "<group>"; };
+		B6F59C7822A856EA00406986 /* ClipperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,24 +149,19 @@
 		B6AF4A7022A73FBE00F9E005 /* TransitPal */ = {
 			isa = PBXGroup;
 			children = (
+				B6E9DF1E22A8A94A00CA72D6 /* Views */,
+				B6F59C6822A8560300406986 /* Models */,
 				B6AF4A9622A7761000F9E005 /* PromiseKit.xcodeproj */,
 				B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */,
 				B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */,
 				B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */,
-				B6AF4A7522A73FBE00F9E005 /* ContentView.swift */,
 				B6AF4A7722A73FC100F9E005 /* Assets.xcassets */,
 				B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */,
 				B6AF4A7F22A73FC100F9E005 /* Info.plist */,
 				B6AF4A7922A73FC100F9E005 /* Preview Content */,
-				B6AF4A8622A7403E00F9E005 /* Mifare.swift */,
 				B6AF4A8822A7412700F9E005 /* NFCReader.swift */,
-				B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */,
-				B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */,
 				B6AF4A9022A7503A00F9E005 /* Data+Bytes.swift */,
 				B6AF4A9222A752D800F9E005 /* Utils.swift */,
-				B640728422A7BAEA0059FB15 /* CardActivityRow.swift */,
-				B640728622A7BB760059FB15 /* ClipperEvent.swift */,
-				B63B88F422A7BCD900207C32 /* CardEventList.swift */,
 			);
 			path = TransitPal;
 			sourceTree = "<group>";
@@ -187,6 +192,56 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6E9DF1A22A89D2100CA72D6 /* Tag Standards */ = {
+			isa = PBXGroup;
+			children = (
+				B6AF4A8622A7403E00F9E005 /* MiFare.swift */,
+			);
+			path = "Tag Standards";
+			sourceTree = "<group>";
+		};
+		B6E9DF1B22A8A0DF00CA72D6 /* Tag Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				B6F59C6F22A8561B00406986 /* Clipper */,
+			);
+			path = "Tag Implementations";
+			sourceTree = "<group>";
+		};
+		B6E9DF1E22A8A94A00CA72D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */,
+				B63B88F422A7BCD900207C32 /* CardHistoryList.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6F59C6822A8560300406986 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6E9DF1B22A8A0DF00CA72D6 /* Tag Implementations */,
+				B6E9DF1A22A89D2100CA72D6 /* Tag Standards */,
+				B6F59C7022A8562F00406986 /* TransitTag.swift */,
+				B6F59C7222A8568200406986 /* TransitTrip.swift */,
+				B6F59C7422A8569200406986 /* TransitRefill.swift */,
+				B6F59C7622A856BA00406986 /* TransitEvent.swift */,
+				B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6F59C6F22A8561B00406986 /* Clipper */ = {
+			isa = PBXGroup;
+			children = (
+				B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */,
+				B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */,
+				B6F59C7822A856EA00406986 /* ClipperData.swift */,
+				B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */,
+			);
+			path = Clipper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,18 +367,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F59C7322A8568200406986 /* TransitTrip.swift in Sources */,
 				B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */,
 				B6AF4A7222A73FBE00F9E005 /* AppDelegate.swift in Sources */,
 				B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */,
+				B6F59C7722A856BA00406986 /* TransitEvent.swift in Sources */,
 				B6AF4A7422A73FBE00F9E005 /* SceneDelegate.swift in Sources */,
-				B640728722A7BB760059FB15 /* ClipperEvent.swift in Sources */,
-				B6AF4A7622A73FBE00F9E005 /* ContentView.swift in Sources */,
-				B63B88F522A7BCD900207C32 /* CardEventList.swift in Sources */,
+				B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */,
+				B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */,
+				B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */,
 				B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */,
 				B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */,
-				B640728522A7BAEA0059FB15 /* CardActivityRow.swift in Sources */,
-				B6AF4A8722A7403E00F9E005 /* Mifare.swift in Sources */,
+				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,
+				B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */,
 				B6AF4A9122A7503A00F9E005 /* Data+Bytes.swift in Sources */,
+				B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */,
+				B6E9DF1D22A8A1F100CA72D6 /* TransitStation.swift in Sources */,
+				B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

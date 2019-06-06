@@ -15,7 +15,7 @@ import Combine
 class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
     let didChange = PassthroughSubject<NFCReader, Never>()
 
-    public var events: [ClipperTrip] = [] {
+    public var processedTag: TransitTag? {
         didSet {
             self.didChange.send(self)
         }
@@ -35,15 +35,17 @@ class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
         if tags.count > 1 {
             print("More than 1 tag was found. Please present only 1 tag.")
+            session.invalidate(errorMessage: "More than 1 tag was found. Please present only 1 tag.")
             return
         }
 
-        guard let firstTag = tags.first, case let .miFare(tag) = firstTag else {
+        guard let firstTag = tags.first else {
             print("Unable to get first tag")
+            session.invalidate(errorMessage: "Unable to get first tag")
             return
         }
 
-        print("Got mifare tag!", tag.identifier, tag.mifareFamily, tag.historicalBytes)
+        print("Got a tag!", firstTag)
 
         session.connect(to: firstTag) { (error: Error?) in
             if error != nil {
@@ -51,58 +53,29 @@ class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
                 return
             }
 
-            print("Got connected tag as mifare", tag, tag.identifier, tag.mifareFamily, tag.historicalBytes)
+            print("Connected to tag!")
 
-            firstly {
-                tag.selectApplication([0x90, 0x11, 0xf2])
-            }.then { Void -> Promise<[Data]> in
-                // tag.getFile(0x04) dont work??? auth???
+            var importPromise: Promise<TransitTag>?
 
-                let files: [UInt8] = [0x2, 0x4, 0x8, 0xe]
+            switch firstTag {
+            case .miFare(let discoveredTag):
+                print("Got a MiFare tag!", discoveredTag.identifier, discoveredTag.mifareFamily, discoveredTag.historicalBytes)
+                importPromise = ClipperTag().importTag(discoveredTag)
+            case .feliCa(let discoveredTag):
+                print("Got a FeliCa tag!", discoveredTag.currentSystemCode, discoveredTag.currentIDm)
+            case .iso15693(let discoveredTag):
+                print("Got a ISO 15693 tag!", discoveredTag.icManufacturerCode, discoveredTag.icSerialNumber, discoveredTag.identifier)
+            case .iso7816(let discoveredTag):
+                print("Got a ISO 7816 tag!", discoveredTag.initialSelectedAID, discoveredTag.identifier, discoveredTag.historicalBytes, discoveredTag.applicationData, discoveredTag.proprietaryApplicationDataCoding)
+            @unknown default:
+                session.invalidate(errorMessage: "TransitPal doesn't support this kind of tag!")
+            }
 
-                var filesIterator = files.makeIterator()
-
-                let filesGenerator = AnyIterator<Promise<Data>> {
-                    guard let fileID = filesIterator.next() else { return nil }
-                    if fileID == 0x4 {
-                        return tag.getRecord(fileID)
-                    }
-                    return tag.getFile(fileID)
-                }
-
-                return when(fulfilled: filesGenerator, concurrently: 1)
-            }.done { files in
-                let balanceData = files[0]
-                let refillData = files[1]
-                let cardData = files[2]
-                let tripsData = files[3]
-
-                // print("Got refill data", refillData.hexEncodedString())
-                // print("Got balance data", balanceData.hexEncodedString())
-                // print("Got card data", cardData.hexEncodedString())
-
-                print("Got serial", cardData.getUnsignedInteger(at: 1, length: 4))
-
-                print("Last use timestamp", Date(timeInterval: TimeInterval(dataToInt(balanceData, 4, 4)), since: Date(timeIntervalSince1970: -2208988800)))
-
-                let balance: Int16 = balanceData[18...19].withUnsafeBytes { $0.pointee }
-                print("Got balance $\(Double(balance.bigEndian)/100)")
-
-                let trips = [UInt8](tripsData).chunks(32).map { ClipperTrip(Data(bytes: $0, count: 32)) }.sorted()
-                print("Got trips!", trips)
-
-                let refills = [UInt8](refillData).chunks(32).map { ClipperRefill(Data(bytes: $0, count: 32)) }.sorted()
-                print("Got refills!", refills)
-
-                self.events = trips
-
+            importPromise?.done { tag in
+                print("Got tag!", tag)
+                self.processedTag = tag
                 session.invalidate()
             }.catch { err in
-                print("Received error!", err)
-                if let mErr = err as? MiFareResponse {
-                    session.invalidate(errorMessage: mErr.localizedDescription)
-                    return
-                }
                 session.invalidate(errorMessage: err.localizedDescription)
             }
         }

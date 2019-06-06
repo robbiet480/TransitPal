@@ -1,5 +1,5 @@
 //
-//  Mifare.swift
+//  MiFare.swift
 //  TransitPal
 //
 //  Created by Robert Trencheny on 6/4/19.
@@ -205,17 +205,14 @@ extension Data {
     }
 }
 
-public extension UnsignedInteger {
-    init(_ bytes: [UInt8]) {
-        precondition(bytes.count <= MemoryLayout<Self>.size)
-
-        var value: UInt64 = 0
-
-        for byte in bytes {
-            value <<= 8
-            value |= UInt64(byte)
+extension NFCMiFareFamily: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .unknown: return "Unknown/ISO14443 Type A"
+        case .ultralight: return "Ultralight"
+        case .plus: return "Plus"
+        case .desfire: return "DESFire"
+        @unknown default: return "Unknown"
         }
-
-        self.init(value)
     }
 }
