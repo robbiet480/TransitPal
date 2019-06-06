@@ -26,6 +26,12 @@ struct CardHistoryList : View {
 
         let sortedDates = self.eventsByDate.keys.sorted().reversed().identified(by: \.self)
 
+        var title: String = "TransitPal"
+
+        if let serial = self.nfcRead.processedTag?.Serial {
+            title = "Clipper \(serial)"
+        }
+
         return List {
             if self.nfcRead.processedTag != nil {
                 Text(verbatim: "Balance \(self.nfcRead.processedTag!.prettyBalance)")
@@ -38,7 +44,7 @@ struct CardHistoryList : View {
                     }
                 }
             }
-        }.navigationBarTitle(Text("TransitPal")).navigationBarItems(leading: clearButton, trailing: scanButton)
+        }.navigationBarTitle(Text(title)).navigationBarItems(leading: clearButton, trailing: scanButton)
     }
 
     var dateFormatter: DateFormatter = {

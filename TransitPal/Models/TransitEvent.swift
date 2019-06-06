@@ -12,7 +12,7 @@ import SwiftUI
 class TransitEvent: CustomDebugStringConvertible, Comparable, Identifiable {
     var id = UUID()
     var Timestamp: Date = Date()
-    var Agency: ClipperAgency = .Unknown
+    var Agency: Operator = Operator()
 
     var debugDescription: String {
         return "Timestamp: \(self.Timestamp), Agency: \(self.Agency)"

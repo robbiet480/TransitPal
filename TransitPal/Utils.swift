@@ -68,21 +68,57 @@ extension Data {
         }
     }
 
+    var int16: Int16 {
+        get {
+            let i16array = self.withUnsafeBytes {
+                UnsafeBufferPointer<Int16>(start: $0, count: self.count/2).map(Int16.init(bigEndian:))
+            }
+            return i16array[0]
+        }
+    }
+
     var uint16: UInt16 {
         get {
             let i16array = self.withUnsafeBytes {
-                UnsafeBufferPointer<UInt16>(start: $0, count: self.count/2).map(UInt16.init(littleEndian:))
+                UnsafeBufferPointer<UInt16>(start: $0, count: self.count/2).map(UInt16.init(bigEndian:))
             }
             return i16array[0]
+        }
+    }
+
+    var int32: Int32 {
+        get {
+            let i32array = self.withUnsafeBytes {
+                UnsafeBufferPointer<Int32>(start: $0, count: self.count/2).map(Int32.init(bigEndian:))
+            }
+            return i32array[0]
         }
     }
 
     var uint32: UInt32 {
         get {
             let i32array = self.withUnsafeBytes {
-                UnsafeBufferPointer<UInt32>(start: $0, count: self.count/2).map(UInt32.init(littleEndian:))
+                UnsafeBufferPointer<UInt32>(start: $0, count: self.count/2).map(UInt32.init(bigEndian:))
             }
             return i32array[0]
+        }
+    }
+
+    var int64: Int64 {
+        get {
+            let i64array = self.withUnsafeBytes {
+                UnsafeBufferPointer<Int64>(start: $0, count: self.count/2).map(Int64.init(bigEndian:))
+            }
+            return i64array[0]
+        }
+    }
+
+    var uint64: UInt64 {
+        get {
+            let i64array = self.withUnsafeBytes {
+                UnsafeBufferPointer<UInt64>(start: $0, count: self.count/2).map(UInt64.init(bigEndian:))
+            }
+            return i64array[0]
         }
     }
 
@@ -103,6 +139,17 @@ extension Data {
         get {
             return NSString(data: self, encoding: String.Encoding.utf8.rawValue) as String?
         }
+    }
+
+    init<T>(from value: T) {
+        self = Swift.withUnsafeBytes(of: value) { Data($0) }
+    }
+
+    func to<T>(type: T.Type) -> T? where T: ExpressibleByIntegerLiteral {
+        var value: T = 0
+        guard count >= MemoryLayout.size(ofValue: value) else { return nil }
+        _ = Swift.withUnsafeMutableBytes(of: &value, { copyBytes(to: $0)} )
+        return value
     }
 
 }

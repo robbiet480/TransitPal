@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
+        "state": {
+          "branch": "v7",
+          "revision": "3c0457e14293e34b849ff5d63b12aec0087fbb36",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftProtobuf",
+        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
+        "state": {
+          "branch": null,
+          "revision": "7bf52ab1f5ee87aeb89f2a6b9bfc6369408476f7",
+          "version": "1.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

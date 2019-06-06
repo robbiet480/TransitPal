@@ -15,6 +15,7 @@ class ClipperTag: TransitTag {
         guard let miFareTag = foundTag as? NFCMiFareTag else {
             fatalError("Was given a mifare tag that wasn't actually mifare!!!")
         }
+
         return firstly {
             miFareTag.selectApplication([0x90, 0x11, 0xf2])
         }.then { Void -> Promise<[Data]> in
@@ -46,13 +47,18 @@ class ClipperTag: TransitTag {
             print("Last use timestamp", Date(timeInterval: TimeInterval(dataToInt(balanceData, 4, 4)), since: Date(timeIntervalSince1970: -2208988800)))
 
             let balance: Int16 = balanceData[18...19].withUnsafeBytes { $0.pointee }
-            print("Got balance $\(Double(balance.bigEndian)/100)")
+            // print("Got balance $\(Double(balance.bigEndian)/100)")
 
-            let trips = [UInt8](tripsData).chunks(32).map { ClipperTrip(Data(bytes: $0, count: 32)) }.sorted()
-            print("Got trips!", trips)
+            print("tripsData", tripsData, tripsData.count, tripsData.hexEncodedString())
 
-            let refills = [UInt8](refillData).chunks(32).map { ClipperRefill(Data(bytes: $0, count: 32)) }.sorted()
-            print("Got refills!", refills)
+            let trips = [UInt8](tripsData).chunks(32).compactMap { chunk -> ClipperTrip? in
+                print("trip count", chunk.count);
+                return ClipperTrip(Data(bytes: chunk, count: 32))
+            }.sorted()
+            // print("Got trips!", trips)
+
+            let refills = [UInt8](refillData).chunks(32).compactMap { ClipperRefill(Data(bytes: $0, count: 32)) }.sorted()
+            // print("Got refills!", refills)
 
             let tTag = TransitTag()
 

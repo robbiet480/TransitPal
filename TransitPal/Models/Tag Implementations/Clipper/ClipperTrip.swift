@@ -12,37 +12,49 @@ import SwiftUI
 class ClipperTrip: TransitTrip {
     var Route: Int16 = 0
     var VehicleNumber: Int16 = 0
-    var TransportCode: ClipperTransportCode = .Other
+    var TransportCode: TransportType = TransportType()
 
     override init() {}
 
-    init(_ data: Data) {
+    init?(_ data: Data) {
         super.init()
 
-        self.Timestamp = Date(timeInterval: TimeInterval(dataToInt(data, 0xc, 4)), since: Date(timeIntervalSince1970: -2208988800))
-        self.ExitTimestamp = Date(timeInterval: TimeInterval(dataToInt(data, 0x10, 4)), since: Date(timeIntervalSince1970: -2208988800))
+        self.Timestamp = Date(timeInterval: TimeInterval(dataToInt(data, 12, 4)), since: Date(timeIntervalSince1970: -2208988800))
+        self.ExitTimestamp = Date(timeInterval: TimeInterval(dataToInt(data, 16, 4)), since: Date(timeIntervalSince1970: -2208988800))
 
         if self.ExitTimestamp == Date(timeIntervalSince1970: -2208988800) {
             self.ExitTimestamp = nil
         }
 
-        let fare: Int16 = data[0x6...0x8].withUnsafeBytes { $0.pointee }
+        let fare: Int16 = data[6...8].withUnsafeBytes { $0.pointee }
         self.Fare = fare.bigEndian
 
-        self.Agency = ClipperAgency(rawValue: UInt(data.subdata(in: 0x2..<0x2+2).last!))!
+        let agency = clipperData.Metadata.operators.first { $0.key == UInt(data[2...3].last!) }
 
-        let fromStation: Int16 = data[0x14...0x15].withUnsafeBytes { $0.pointee }
-        self.From = fromStation.bigEndian
+        guard let op = agency?.value else { return nil }
 
-        let toStation: Int16 = data[0x16...0x17].withUnsafeBytes { $0.pointee }
+        self.Agency = op
 
-        self.To = toStation.bigEndian
-        let route: Int16 = data[0x1c...0x1d].withUnsafeBytes { $0.pointee }
+        /* if let fromStation = clipperData.Stations.first(where: { $0.id == data[20...21].uint32.bigEndian / 2 }) {
+            print("Got from station", fromStation)
+            self.From = fromStation
+        } else {
+            print("NO FROM STATION", self)
+        }
+
+        if let toStation = clipperData.Stations.first(where: { $0.id == data[22...23].uint32.bigEndian / 2 }) {
+            print("Got to station", toStation)
+            self.To = toStation
+        } else {
+            print("NO TO STATION", self)
+        } */
+
+        let route: Int16 = data[28...29].withUnsafeBytes { $0.pointee }
         self.Route = route.bigEndian
-        let vehicleID: Int16 = data[0xa...0xb].withUnsafeBytes { $0.pointee }
+        let vehicleID: Int16 = data[10...11].withUnsafeBytes { $0.pointee }
         self.VehicleNumber = vehicleID.bigEndian
 
-        self.TransportCode = ClipperTransportCode(data.subdata(in: 0x1e..<0x1e+2).last!, self.Agency)
+        self.TransportCode = op.defaultTransport
     }
 
     override var debugDescription: String {

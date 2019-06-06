@@ -24,7 +24,7 @@ struct TransitEventRow : View {
 
         if let trip = event as? TransitTrip {
             amount = trip.prettyFare
-            description = "\(trip.From) -> \(trip.To)"
+            description = "\(trip.From.name.english) -> \(trip.To.name.english)"
             iconName = "arrow.left.and.right.square"
             if let exitTime = trip.ExitTimestamp {
                 timestamp = "\(timestamp) -> \(dateFormatter.string(from: exitTime))"
@@ -37,7 +37,7 @@ struct TransitEventRow : View {
         return HStack {
             Image(systemName: iconName)
             VStack(alignment: .leading) {
-                Text(event.Agency.description).font(.headline)
+                Text(verbatim: event.Agency.name.englishShort).font(.headline)
                 Text(description)
             }
             Spacer()

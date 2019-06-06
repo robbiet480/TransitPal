@@ -11,8 +11,8 @@ import Foundation
 class TransitTrip: TransitEvent {
     var ExitTimestamp: Date?
     var Fare: Int16 = 0
-    var From: Int16 = 0
-    var To: Int16 = 0
+    var From: Station = Station()
+    var To: Station = Station()
 
     override var debugDescription: String {
         return "Timestamp: \(self.Timestamp), ExitTimestamp: \(self.ExitTimestamp), Fare: \(self.Fare), Agency: \(self.Agency), From: \(self.From), To: \(self.To)"
