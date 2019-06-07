@@ -129,6 +129,18 @@
 			path = FontAwesome;
 			sourceTree = "<group>";
 		};
+		B6281F2022AA4B63009009DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */,
+				B6AF4A7722A73FC100F9E005 /* Assets.xcassets */,
+				B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */,
+				B6AF4A7F22A73FC100F9E005 /* Info.plist */,
+				B6AF4A7922A73FC100F9E005 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B66B91AE22A8FB4800046130 /* MdST */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,15 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				B60452E822AA00A700CA41D6 /* FontAwesome */,
-				B6E9DF1E22A8A94A00CA72D6 /* Views */,
 				B6F59C6822A8560300406986 /* Models */,
-				B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */,
+				B6281F2022AA4B63009009DF /* Resources */,
+				B6E9DF1E22A8A94A00CA72D6 /* Views */,
 				B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */,
 				B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */,
-				B6AF4A7722A73FC100F9E005 /* Assets.xcassets */,
-				B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */,
-				B6AF4A7F22A73FC100F9E005 /* Info.plist */,
-				B6AF4A7922A73FC100F9E005 /* Preview Content */,
 				B6AF4A8822A7412700F9E005 /* NFCReader.swift */,
 				B6AF4A9222A752D800F9E005 /* Utils.swift */,
 				B6B2A66522AA11B10018A026 /* UserData.swift */,
