@@ -7,8 +7,7 @@ Database of stations is [provided by Metrodroid](https://github.com/micolous/met
 
 ## Screenshots
 
-<img src="Screenshots/History.png" width="80%">
-<img src="Screenshots/Details.png" width="80%">
+<img src="Screenshots/History.png" width="20%"> <img src="Screenshots/Details.png" width="20%">
 
 ## LICENSE
 
