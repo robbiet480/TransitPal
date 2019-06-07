@@ -34,7 +34,7 @@ public class ClipperData {
             return stationInDB
         }
 
-        let humanReadableID = String(format:"0x%02x", agencyId) + "/" + String(format:"0x%02x", stationId)
+        let humanReadableID = String(format:"0x%x", agencyId) + "/" + String(format:"0x%x", stationId)
 
         if agencyId == ClipperAgency.Caltrain.rawValue || agencyId == ClipperAgency.GoldenGateTransit.rawValue {
             if stationId == 0xffff {

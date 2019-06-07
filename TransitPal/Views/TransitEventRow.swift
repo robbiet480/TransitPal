@@ -24,13 +24,13 @@ struct TransitEventRow : View {
 
         if let trip = event as? TransitTrip {
             amount = trip.prettyFare
-            description = "\(trip.From.name.english) -> \(trip.To.name.english)"
+            description = "\(trip.From.name.english) → \(trip.To.name.english)"
             iconName = "arrow.left.and.right.square"
             if let exitTime = trip.ExitTimestamp {
-                timestamp = "\(timestamp) -> \(dateFormatter.string(from: exitTime))"
+                timestamp = "\(timestamp) → \(dateFormatter.string(from: exitTime))"
             }
         } else if let refill = event as? TransitRefill {
-            amount = refill.prettyAmount
+            amount = "+ " + refill.prettyAmount
             description = "Machine ID \(refill.MachineID)"
         }
 
@@ -38,12 +38,12 @@ struct TransitEventRow : View {
             Image(systemName: iconName)
             VStack(alignment: .leading) {
                 Text(verbatim: event.Agency.name.englishShort).font(.headline)
-                Text(description)
+                Text(description).lineLimit(nil).font(.callout)
             }
             Spacer()
             VStack(alignment: .trailing) {
                 Text(amount)
-                Text(timestamp)
+                Text(timestamp).font(.callout)
             }
         }
     }
