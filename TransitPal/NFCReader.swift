@@ -12,14 +12,12 @@ import PromiseKit
 import SwiftUI
 import Combine
 
-class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
-    let didChange = PassthroughSubject<NFCReader, Never>()
+protocol NFCReaderDelegate {
+    func transitTagProcessed(_ tag: TransitTag)
+}
 
-    public var processedTag: TransitTag? {
-        didSet {
-            self.didChange.send(self)
-        }
-    }
+class NFCReader: NSObject, NFCTagReaderSessionDelegate {
+    var tagDelegate: NFCReaderDelegate?
 
     // MARK: - NFCTagReaderSessionDelegate
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
@@ -73,7 +71,7 @@ class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
 
             importPromise?.done { tag in
                 print("Got tag!", tag)
-                self.processedTag = tag
+                self.tagDelegate?.transitTagProcessed(tag)
                 session.invalidate()
             }.catch { err in
                 session.invalidate(errorMessage: err.localizedDescription)

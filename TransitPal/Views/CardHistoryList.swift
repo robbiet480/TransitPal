@@ -10,10 +10,10 @@ import SwiftUI
 import CoreNFC
 
 struct CardHistoryList : View {
-    @EnvironmentObject var nfcRead: NFCReader
+    @EnvironmentObject var userData: UserData
 
     var eventsByDate: [Date: [TransitEvent]] {
-        guard let tag = self.nfcRead.processedTag else { return [:] }
+        guard let tag = self.userData.processedTag else { return [:] }
         return Dictionary(grouping: tag.Events, by: { (event: TransitEvent) -> Date in
             let components = Calendar.current.dateComponents([.year, .month, .day], from: event.Timestamp)
             return Calendar.current.date(from: components)!
@@ -21,20 +21,21 @@ struct CardHistoryList : View {
     }
 
     var body: some View {
-        let clearButton = Button(action: { self.nfcRead.processedTag = nil }) { Text("Clear") }
+
+        let clearButton = Button(action: { self.userData.processedTag = nil }) { Text("Clear") }
         let scanButton = Button(action: { self.startScan() }) { Text("Scan") }
 
         let sortedDates = self.eventsByDate.keys.sorted().reversed().identified(by: \.self)
 
         var title: String = "TransitPal"
 
-        if let tag = self.nfcRead.processedTag {
+        if let tag = self.userData.processedTag {
             title = tag.description
         }
 
         return List {
-            if self.nfcRead.processedTag != nil {
-                Text(verbatim: "Balance \(self.nfcRead.processedTag!.prettyBalance)")
+            if self.userData.processedTag != nil {
+                Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
             }
 
             ForEach(sortedDates) { (date: Date) in
@@ -55,7 +56,7 @@ struct CardHistoryList : View {
     }()
 
     func startScan() {
-        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092], delegate: self.nfcRead)
+        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092], delegate: self.userData.nfcReader)
         readerSession?.alertMessage = "Hold your iPhone near an NFC transit card."
         readerSession?.begin()
     }

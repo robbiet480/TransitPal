@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct TransitEventRow : View {
+    @EnvironmentObject var userData: UserData
+
     var event: TransitEvent
 
     var body: some View {
@@ -19,23 +21,27 @@ struct TransitEventRow : View {
 
         var amount: String = ""
         var description: String = ""
-        var iconName = "dollarsign.circle"
+        var icon: FontAwesome = .questionCircle
         var timestamp: String = dateFormatter.string(from: event.Timestamp)
 
         if let trip = event as? TransitTrip {
             amount = trip.prettyFare
             description = "\(trip.From.name.english) → \(trip.To.name.english)"
-            iconName = "arrow.left.and.right.square"
+            icon = trip.Mode.icon
             if let exitTime = trip.ExitTimestamp {
                 timestamp = "\(timestamp) → \(dateFormatter.string(from: exitTime))"
             }
         } else if let refill = event as? TransitRefill {
             amount = "+ " + refill.prettyAmount
             description = "Machine ID \(refill.MachineID)"
+            icon = TransportType.pos.icon
         }
 
+        let image = UIImage.fontAwesomeIcon(name: icon, style: .solid,
+                                            textColor: .label, size: CGSize(width: 30, height: 30))
+
         return HStack {
-            Image(systemName: iconName)
+            Image(uiImage: image)
             VStack(alignment: .leading) {
                 Text(verbatim: event.Agency.name.englishShort).font(.headline)
                 Text(description).lineLimit(nil).font(.callout)

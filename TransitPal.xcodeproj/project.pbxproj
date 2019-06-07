@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B60452E722A9E9B400CA41D6 /* MdST+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452E622A9E9B400CA41D6 /* MdST+Extensions.swift */; };
+		B60452F722AA00BA00CA41D6 /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452E922AA00B800CA41D6 /* FontAwesomeView.swift */; };
+		B60452F822AA00BA00CA41D6 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60452EA22AA00B800CA41D6 /* Font Awesome 5 Free-Solid-900.otf */; };
+		B60452F922AA00BA00CA41D6 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452EB22AA00B900CA41D6 /* FontAwesomeTabBarItem.swift */; };
+		B60452FA22AA00BA00CA41D6 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60452EC22AA00B900CA41D6 /* Font Awesome 5 Brands-Regular-400.otf */; };
+		B60452FB22AA00BA00CA41D6 /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452ED22AA00B900CA41D6 /* FontAwesomeStateRequirement.swift */; };
+		B60452FC22AA00BA00CA41D6 /* FontAwesomeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452EE22AA00B900CA41D6 /* FontAwesomeExtension.swift */; };
+		B60452FD22AA00BA00CA41D6 /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452EF22AA00B900CA41D6 /* FontAwesomeTextRepresentable.swift */; };
+		B60452FE22AA00BA00CA41D6 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F022AA00B900CA41D6 /* FontAwesomeSegmentedControl.swift */; };
+		B60452FF22AA00BA00CA41D6 /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F122AA00B900CA41D6 /* FontAwesomeBarButtonItem.swift */; };
+		B604530022AA00BA00CA41D6 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60452F222AA00B900CA41D6 /* Font Awesome 5 Free-Regular-400.otf */; };
+		B604530122AA00BA00CA41D6 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F322AA00B900CA41D6 /* FontAwesomeImageRepresentable.swift */; };
+		B604530222AA00BA00CA41D6 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F422AA00B900CA41D6 /* Enum.swift */; };
+		B604530322AA00BA00CA41D6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F522AA00B900CA41D6 /* FontAwesome.swift */; };
+		B604530422AA00BA00CA41D6 /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452F622AA00B900CA41D6 /* FontAwesomeImageView.swift */; };
 		B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B88F422A7BCD900207C32 /* CardHistoryList.swift */; };
 		B66B91A022A8C32F00046130 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B66B919F22A8C32F00046130 /* SwiftProtobuf */; };
 		B66B91A922A8C37100046130 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = B66B91A822A8C37100046130 /* PromiseKit */; };
@@ -24,6 +38,7 @@
 		B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */; };
 		B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */; };
 		B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A9222A752D800F9E005 /* Utils.swift */; };
+		B6B2A66622AA11B10018A026 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B2A66522AA11B10018A026 /* UserData.swift */; };
 		B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */; };
 		B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */; };
 		B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7022A8562F00406986 /* TransitTag.swift */; };
@@ -35,6 +50,20 @@
 
 /* Begin PBXFileReference section */
 		B60452E622A9E9B400CA41D6 /* MdST+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MdST+Extensions.swift"; sourceTree = "<group>"; };
+		B60452E922AA00B800CA41D6 /* FontAwesomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeView.swift; sourceTree = "<group>"; };
+		B60452EA22AA00B800CA41D6 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		B60452EB22AA00B900CA41D6 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		B60452EC22AA00B900CA41D6 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		B60452ED22AA00B900CA41D6 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
+		B60452EE22AA00B900CA41D6 /* FontAwesomeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeExtension.swift; sourceTree = "<group>"; };
+		B60452EF22AA00B900CA41D6 /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
+		B60452F022AA00B900CA41D6 /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
+		B60452F122AA00B900CA41D6 /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
+		B60452F222AA00B900CA41D6 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		B60452F322AA00B900CA41D6 /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
+		B60452F422AA00B900CA41D6 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		B60452F522AA00B900CA41D6 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		B60452F622AA00B900CA41D6 /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeImageView.swift; sourceTree = "<group>"; };
 		B63B88F422A7BCD900207C32 /* CardHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHistoryList.swift; sourceTree = "<group>"; };
 		B66B91AA22A8C39E00046130 /* stations.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stations.pb.swift; path = TransitPal/Models/MDST/stations.pb.swift; sourceTree = SOURCE_ROOT; };
 		B66B91AC22A8C3E300046130 /* clipper.mdst */ = {isa = PBXFileReference; lastKnownFileType = file; path = clipper.mdst; sourceTree = "<group>"; };
@@ -52,6 +81,7 @@
 		B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperRefill.swift; sourceTree = "<group>"; };
 		B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTrip.swift; sourceTree = "<group>"; };
 		B6AF4A9222A752D800F9E005 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B6B2A66522AA11B10018A026 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEventRow.swift; sourceTree = "<group>"; };
 		B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTag.swift; sourceTree = "<group>"; };
 		B6F59C7022A8562F00406986 /* TransitTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTag.swift; sourceTree = "<group>"; };
@@ -74,6 +104,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60452E822AA00A700CA41D6 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				B60452F422AA00B900CA41D6 /* Enum.swift */,
+				B60452EC22AA00B900CA41D6 /* Font Awesome 5 Brands-Regular-400.otf */,
+				B60452F222AA00B900CA41D6 /* Font Awesome 5 Free-Regular-400.otf */,
+				B60452EA22AA00B800CA41D6 /* Font Awesome 5 Free-Solid-900.otf */,
+				B60452F522AA00B900CA41D6 /* FontAwesome.swift */,
+				B60452F122AA00B900CA41D6 /* FontAwesomeBarButtonItem.swift */,
+				B60452EE22AA00B900CA41D6 /* FontAwesomeExtension.swift */,
+				B60452F322AA00B900CA41D6 /* FontAwesomeImageRepresentable.swift */,
+				B60452F622AA00B900CA41D6 /* FontAwesomeImageView.swift */,
+				B60452F022AA00B900CA41D6 /* FontAwesomeSegmentedControl.swift */,
+				B60452ED22AA00B900CA41D6 /* FontAwesomeStateRequirement.swift */,
+				B60452EB22AA00B900CA41D6 /* FontAwesomeTabBarItem.swift */,
+				B60452EF22AA00B900CA41D6 /* FontAwesomeTextRepresentable.swift */,
+				B60452E922AA00B800CA41D6 /* FontAwesomeView.swift */,
+			);
+			path = FontAwesome;
+			sourceTree = "<group>";
+		};
 		B66B91AE22A8FB4800046130 /* MdST */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +155,7 @@
 		B6AF4A7022A73FBE00F9E005 /* TransitPal */ = {
 			isa = PBXGroup;
 			children = (
+				B60452E822AA00A700CA41D6 /* FontAwesome */,
 				B6E9DF1E22A8A94A00CA72D6 /* Views */,
 				B6F59C6822A8560300406986 /* Models */,
 				B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */,
@@ -115,6 +167,7 @@
 				B6AF4A7922A73FC100F9E005 /* Preview Content */,
 				B6AF4A8822A7412700F9E005 /* NFCReader.swift */,
 				B6AF4A9222A752D800F9E005 /* Utils.swift */,
+				B6B2A66522AA11B10018A026 /* UserData.swift */,
 			);
 			path = TransitPal;
 			sourceTree = "<group>";
@@ -252,9 +305,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B66B91AD22A8C55100046130 /* clipper.mdst in Resources */,
+				B60452FA22AA00BA00CA41D6 /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
+				B604530022AA00BA00CA41D6 /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				B6AF4A7E22A73FC100F9E005 /* LaunchScreen.storyboard in Resources */,
 				B6AF4A7B22A73FC100F9E005 /* Preview Assets.xcassets in Resources */,
 				B6AF4A7822A73FC100F9E005 /* Assets.xcassets in Resources */,
+				B60452F822AA00BA00CA41D6 /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,21 +322,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6F59C7322A8568200406986 /* TransitTrip.swift in Sources */,
+				B60452FD22AA00BA00CA41D6 /* FontAwesomeTextRepresentable.swift in Sources */,
+				B60452F922AA00BA00CA41D6 /* FontAwesomeTabBarItem.swift in Sources */,
 				B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */,
 				B6AF4A7222A73FBE00F9E005 /* AppDelegate.swift in Sources */,
+				B604530222AA00BA00CA41D6 /* Enum.swift in Sources */,
 				B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */,
 				B6F59C7722A856BA00406986 /* TransitEvent.swift in Sources */,
+				B60452F722AA00BA00CA41D6 /* FontAwesomeView.swift in Sources */,
 				B6AF4A7422A73FBE00F9E005 /* SceneDelegate.swift in Sources */,
 				B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */,
 				B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */,
+				B604530322AA00BA00CA41D6 /* FontAwesome.swift in Sources */,
+				B60452FE22AA00BA00CA41D6 /* FontAwesomeSegmentedControl.swift in Sources */,
 				B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */,
 				B60452E722A9E9B400CA41D6 /* MdST+Extensions.swift in Sources */,
 				B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */,
+				B604530122AA00BA00CA41D6 /* FontAwesomeImageRepresentable.swift in Sources */,
+				B6B2A66622AA11B10018A026 /* UserData.swift in Sources */,
 				B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */,
 				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,
 				B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */,
 				B69D975722A8FC6E00FA52E4 /* MdST.swift in Sources */,
+				B604530422AA00BA00CA41D6 /* FontAwesomeImageView.swift in Sources */,
+				B60452FB22AA00BA00CA41D6 /* FontAwesomeStateRequirement.swift in Sources */,
+				B60452FC22AA00BA00CA41D6 /* FontAwesomeExtension.swift in Sources */,
 				B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */,
+				B60452FF22AA00BA00CA41D6 /* FontAwesomeBarButtonItem.swift in Sources */,
 				B66B91AB22A8C39E00046130 /* stations.pb.swift in Sources */,
 				B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */,
 			);

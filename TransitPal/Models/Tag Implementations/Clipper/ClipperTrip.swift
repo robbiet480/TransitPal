@@ -10,10 +10,6 @@ import Foundation
 import SwiftUI
 
 class ClipperTrip: TransitTrip {
-    var Route: Int = 0
-    var VehicleNumber: Int = 0
-    var TransportCode: TransportType = TransportType()
-
     override init() {}
 
     init?(_ data: Data) {
@@ -56,15 +52,7 @@ class ClipperTrip: TransitTrip {
         self.Route = Int(dataArr.toInt(0x1c, 2))
         self.VehicleNumber = Int(dataArr.toInt(0xa, 2))
 
-        self.TransportCode = TransportType(dataArr.toInt(0x1e, 2), agencyID, self.Agency.defaultTransport)
-    }
-
-    override var debugDescription: String {
-        return "Timestamp: \(self.Timestamp), ExitTimestamp: \(self.ExitTimestamp), Fare: \(self.Fare), Agency: \(self.Agency.name.english), From: \(self.From.name.english), To: \(self.To.name.english), Route: \(self.Route), VehicleNumber: \(self.VehicleNumber), TransportCode: \(self.TransportCode)"
-    }
-
-    static func ==(lhs: ClipperTrip, rhs: ClipperTrip) -> Bool {
-        return lhs.From == rhs.From && lhs.To == rhs.To && lhs.Agency == rhs.Agency
+        self.Mode = TransportType(dataArr.toInt(0x1e, 2), agencyID, self.Agency.defaultTransport)
     }
 }
 
