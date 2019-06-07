@@ -46,6 +46,8 @@
 		B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7422A8569200406986 /* TransitRefill.swift */; };
 		B6F59C7722A856BA00406986 /* TransitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7622A856BA00406986 /* TransitEvent.swift */; };
 		B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7822A856EA00406986 /* ClipperData.swift */; };
+		B6F8886C22AA1763001B31C3 /* TransitTripMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8886B22AA1763001B31C3 /* TransitTripMapView.swift */; };
+		B6F8886E22AA187A001B31C3 /* TransitEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8886D22AA187A001B31C3 /* TransitEventDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		B6F59C7422A8569200406986 /* TransitRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitRefill.swift; sourceTree = "<group>"; };
 		B6F59C7622A856BA00406986 /* TransitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEvent.swift; sourceTree = "<group>"; };
 		B6F59C7822A856EA00406986 /* ClipperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperData.swift; sourceTree = "<group>"; };
+		B6F8886B22AA1763001B31C3 /* TransitTripMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTripMapView.swift; sourceTree = "<group>"; };
+		B6F8886D22AA187A001B31C3 /* TransitEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 			children = (
 				B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */,
 				B63B88F422A7BCD900207C32 /* CardHistoryList.swift */,
+				B6F8886D22AA187A001B31C3 /* TransitEventDetailView.swift */,
+				B6F8886B22AA1763001B31C3 /* TransitTripMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,12 +342,14 @@
 				B604530322AA00BA00CA41D6 /* FontAwesome.swift in Sources */,
 				B60452FE22AA00BA00CA41D6 /* FontAwesomeSegmentedControl.swift in Sources */,
 				B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */,
+				B6F8886E22AA187A001B31C3 /* TransitEventDetailView.swift in Sources */,
 				B60452E722A9E9B400CA41D6 /* MdST+Extensions.swift in Sources */,
 				B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */,
 				B604530122AA00BA00CA41D6 /* FontAwesomeImageRepresentable.swift in Sources */,
 				B6B2A66622AA11B10018A026 /* UserData.swift in Sources */,
 				B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */,
 				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,
+				B6F8886C22AA1763001B31C3 /* TransitTripMapView.swift in Sources */,
 				B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */,
 				B69D975722A8FC6E00FA52E4 /* MdST.swift in Sources */,
 				B604530422AA00BA00CA41D6 /* FontAwesomeImageView.swift in Sources */,
@@ -499,7 +507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.robbie.TransitPal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -520,7 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.robbie.TransitPal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

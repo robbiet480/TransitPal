@@ -33,19 +33,21 @@ struct CardHistoryList : View {
             title = tag.description
         }
 
-        return List {
-            if self.userData.processedTag != nil {
-                Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
-            }
+        return NavigationView {
+            List {
+                if self.userData.processedTag != nil {
+                    Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
+                }
 
-            ForEach(sortedDates) { (date: Date) in
-                Section(header: Text(self.dateFormatter.string(from: date))) {
-                    ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
-                        TransitEventRow(event: event)
+                ForEach(sortedDates) { (date: Date) in
+                    Section(header: Text(self.dateFormatter.string(from: date))) {
+                        ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
+                            PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
+                        }
                     }
                 }
-            }
-        }.navigationBarTitle(Text(title)).navigationBarItems(leading: clearButton, trailing: scanButton)
+            }.navigationBarTitle(Text(title)).navigationBarItems(leading: clearButton, trailing: scanButton)
+        }
     }
 
     var dateFormatter: DateFormatter = {

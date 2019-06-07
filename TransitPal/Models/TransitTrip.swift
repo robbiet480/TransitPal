@@ -59,3 +59,32 @@ extension TransportType {
         }
     }
 }
+
+extension TransportType: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .bus:
+            return "Bus"
+        case .train:
+            return "Train"
+        case .tram:
+            return "Tram"
+        case .metro:
+            return "Subway"
+        case .ferry:
+            return "Ferry"
+        case .ticketMachine:
+            return "Ticket Machine"
+        case .vendingMachine:
+            return "Vending Machine"
+        case .pos:
+            return "Point of Sale"
+        case .banned:
+            return "Banned"
+        case .trolleybus:
+            return "Trolley Bus"
+        case .unknown, .other, .UNRECOGNIZED(_):
+            return "Unknown"
+        }
+    }
+}

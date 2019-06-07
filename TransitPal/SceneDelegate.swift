@@ -25,9 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate,
 
         let window = ColorChangingWindow(frame: UIScreen.main.bounds)
         window.styleDelegate = self
-        window.rootViewController = UIHostingController(rootView: NavigationView(){
-            CardHistoryList().environmentObject(self.userData)
-        })
+        window.rootViewController = UIHostingController(rootView: CardHistoryList().environmentObject(self.userData))
         self.window = window
         window.makeKeyAndVisible()
     }
