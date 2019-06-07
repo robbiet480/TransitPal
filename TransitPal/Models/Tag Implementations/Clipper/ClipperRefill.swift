@@ -12,18 +12,15 @@ class ClipperRefill: TransitRefill {
     init?(_ data: Data) {
         super.init()
 
-        let agency = clipperData.Metadata.operators.first {
-            $0.key == UInt(data.subdata(in: 0x2..<0x2+2).last!)
-        }
+        let dataArr = [UInt8](data)
 
-        guard let op = agency?.value else { return nil }
+        guard let agency = clipperData.getOperator(dataArr.toInt(0x2, 2)) else { return nil }
 
-        self.Agency = op
+        self.Agency = agency
 
-        self.Timestamp = Date(timeInterval: TimeInterval(dataToInt(data, 0x4, 4)), since: Date(timeIntervalSince1970: -2208988800))
+        self.Timestamp = ClipperTag.convertDate(TimeInterval([UInt8](data).toInt(0x4, 4)))
 
-        self.MachineID = data.subdata(in: 0x8..<0x10).hexEncodedString()
-        let amount: Int16 = data.subdata(in: 0xe..<0xe+2).withUnsafeBytes { $0.pointee }
-        self.Amount = amount.bigEndian
+        self.MachineID = String(dataArr.toInt(0x8, 2))
+        self.Amount = Int16(dataArr.toInt(0xe, 2))
     }
 }

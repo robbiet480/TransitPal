@@ -22,11 +22,9 @@
 		B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8822A7412700F9E005 /* NFCReader.swift */; };
 		B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */; };
 		B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */; };
-		B6AF4A9122A7503A00F9E005 /* Data+Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A9022A7503A00F9E005 /* Data+Bytes.swift */; };
 		B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A9222A752D800F9E005 /* Utils.swift */; };
 		B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */; };
 		B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */; };
-		B6E9DF1D22A8A1F100CA72D6 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */; };
 		B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7022A8562F00406986 /* TransitTag.swift */; };
 		B6F59C7322A8568200406986 /* TransitTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7222A8568200406986 /* TransitTrip.swift */; };
 		B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59C7422A8569200406986 /* TransitRefill.swift */; };
@@ -51,11 +49,9 @@
 		B6AF4A8822A7412700F9E005 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
 		B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperRefill.swift; sourceTree = "<group>"; };
 		B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTrip.swift; sourceTree = "<group>"; };
-		B6AF4A9022A7503A00F9E005 /* Data+Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Bytes.swift"; sourceTree = "<group>"; };
 		B6AF4A9222A752D800F9E005 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B6E9DF1022A8757200CA72D6 /* TransitEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitEventRow.swift; sourceTree = "<group>"; };
 		B6E9DF1822A8962600CA72D6 /* ClipperTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTag.swift; sourceTree = "<group>"; };
-		B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitStation.swift; sourceTree = "<group>"; };
 		B6F59C7022A8562F00406986 /* TransitTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTag.swift; sourceTree = "<group>"; };
 		B6F59C7222A8568200406986 /* TransitTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitTrip.swift; sourceTree = "<group>"; };
 		B6F59C7422A8569200406986 /* TransitRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitRefill.swift; sourceTree = "<group>"; };
@@ -115,7 +111,6 @@
 				B6AF4A7F22A73FC100F9E005 /* Info.plist */,
 				B6AF4A7922A73FC100F9E005 /* Preview Content */,
 				B6AF4A8822A7412700F9E005 /* NFCReader.swift */,
-				B6AF4A9022A7503A00F9E005 /* Data+Bytes.swift */,
 				B6AF4A9222A752D800F9E005 /* Utils.swift */,
 			);
 			path = TransitPal;
@@ -171,7 +166,6 @@
 				B6F59C7222A8568200406986 /* TransitTrip.swift */,
 				B6F59C7422A8569200406986 /* TransitRefill.swift */,
 				B6F59C7622A856BA00406986 /* TransitEvent.swift */,
-				B6E9DF1C22A8A1F100CA72D6 /* TransitStation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,10 +276,8 @@
 				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,
 				B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */,
 				B69D975722A8FC6E00FA52E4 /* MdST.swift in Sources */,
-				B6AF4A9122A7503A00F9E005 /* Data+Bytes.swift in Sources */,
 				B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */,
 				B66B91AB22A8C39E00046130 /* stations.pb.swift in Sources */,
-				B6E9DF1D22A8A1F100CA72D6 /* TransitStation.swift in Sources */,
 				B6E9DF1122A8757200CA72D6 /* TransitEventRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

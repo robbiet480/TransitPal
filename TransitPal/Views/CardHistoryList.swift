@@ -28,8 +28,8 @@ struct CardHistoryList : View {
 
         var title: String = "TransitPal"
 
-        if let serial = self.nfcRead.processedTag?.Serial {
-            title = "Clipper \(serial)"
+        if let tag = self.nfcRead.processedTag {
+            title = tag.description
         }
 
         return List {

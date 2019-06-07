@@ -59,14 +59,14 @@ class NFCReader: NSObject, BindableObject, NFCTagReaderSessionDelegate {
 
             switch firstTag {
             case .miFare(let discoveredTag):
-                print("Got a MiFare tag!", discoveredTag.identifier, discoveredTag.mifareFamily, discoveredTag.historicalBytes)
+                print("Got a MiFare tag!", discoveredTag.identifier, discoveredTag.mifareFamily)
                 importPromise = ClipperTag().importTag(discoveredTag)
             case .feliCa(let discoveredTag):
                 print("Got a FeliCa tag!", discoveredTag.currentSystemCode, discoveredTag.currentIDm)
             case .iso15693(let discoveredTag):
                 print("Got a ISO 15693 tag!", discoveredTag.icManufacturerCode, discoveredTag.icSerialNumber, discoveredTag.identifier)
             case .iso7816(let discoveredTag):
-                print("Got a ISO 7816 tag!", discoveredTag.initialSelectedAID, discoveredTag.identifier, discoveredTag.historicalBytes, discoveredTag.applicationData, discoveredTag.proprietaryApplicationDataCoding)
+                print("Got a ISO 7816 tag!", discoveredTag.initialSelectedAID, discoveredTag.identifier)
             @unknown default:
                 session.invalidate(errorMessage: "TransitPal doesn't support this kind of tag!")
             }

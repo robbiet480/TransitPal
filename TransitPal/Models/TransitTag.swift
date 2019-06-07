@@ -18,8 +18,7 @@ enum TransitTagType: CaseIterable {
     case unknown
 }
 
-class TransitTag {
-    var Label: String?
+class TransitTag: CustomStringConvertible {
     var Serial: String?
     var Balance: Int?
     var Trips: [TransitTrip] = []
@@ -27,8 +26,13 @@ class TransitTag {
     var ScannedAt: Date?
     var NFCType: TransitTagType?
 
+    init(_ tagType: TransitTagType) {
+        self.NFCType = tagType
+        self.ScannedAt = Date()
+    }
+
     public var Events: [TransitEvent] {
-        return self.Trips + self.Refills
+        return (self.Trips + self.Refills).sorted()
     }
 
     var prettyBalance: String {
@@ -40,5 +44,9 @@ class TransitTag {
 
     func importTag(_ foundTag: NFCNDEFTag) -> Promise<TransitTag> {
         fatalError("importTag is not implemented!")
+    }
+
+    var description: String {
+        return "Unknown tag"
     }
 }

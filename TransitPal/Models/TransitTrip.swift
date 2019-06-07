@@ -10,7 +10,7 @@ import Foundation
 
 class TransitTrip: TransitEvent {
     var ExitTimestamp: Date?
-    var Fare: Int16 = 0
+    var Fare: Int = 0
     var From: Station = Station()
     var To: Station = Station()
 
