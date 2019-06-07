@@ -134,8 +134,8 @@
 			children = (
 				B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */,
 				B6AF4A7722A73FC100F9E005 /* Assets.xcassets */,
-				B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */,
 				B6AF4A7F22A73FC100F9E005 /* Info.plist */,
+				B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */,
 				B6AF4A7922A73FC100F9E005 /* Preview Content */,
 			);
 			path = Resources;
@@ -502,12 +502,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TransitPal/TransitPal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TransitPal/Resources/TransitPal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "TransitPal/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "TransitPal/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = UTQFCBPQRF;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TransitPal/Info.plist;
+				INFOPLIST_FILE = TransitPal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,12 +523,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TransitPal/TransitPal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TransitPal/Resources/TransitPal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "TransitPal/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "TransitPal/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = UTQFCBPQRF;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TransitPal/Info.plist;
+				INFOPLIST_FILE = TransitPal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
