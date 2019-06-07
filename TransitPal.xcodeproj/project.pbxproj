@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60452E722A9E9B400CA41D6 /* MdST+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60452E622A9E9B400CA41D6 /* MdST+Extensions.swift */; };
 		B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B88F422A7BCD900207C32 /* CardHistoryList.swift */; };
 		B66B91A022A8C32F00046130 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B66B919F22A8C32F00046130 /* SwiftProtobuf */; };
 		B66B91A922A8C37100046130 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = B66B91A822A8C37100046130 /* PromiseKit */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B60452E622A9E9B400CA41D6 /* MdST+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MdST+Extensions.swift"; sourceTree = "<group>"; };
 		B63B88F422A7BCD900207C32 /* CardHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHistoryList.swift; sourceTree = "<group>"; };
 		B66B91AA22A8C39E00046130 /* stations.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stations.pb.swift; path = TransitPal/Models/MDST/stations.pb.swift; sourceTree = SOURCE_ROOT; };
 		B66B91AC22A8C3E300046130 /* clipper.mdst */ = {isa = PBXFileReference; lastKnownFileType = file; path = clipper.mdst; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				B66B91AA22A8C39E00046130 /* stations.pb.swift */,
 				B69D975622A8FC6E00FA52E4 /* MdST.swift */,
+				B60452E622A9E9B400CA41D6 /* MdST+Extensions.swift */,
 			);
 			path = MdST;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B6F59C7522A8569200406986 /* TransitRefill.swift in Sources */,
 				B6E9DF1922A8962600CA72D6 /* ClipperTag.swift in Sources */,
 				B63B88F522A7BCD900207C32 /* CardHistoryList.swift in Sources */,
+				B60452E722A9E9B400CA41D6 /* MdST+Extensions.swift in Sources */,
 				B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */,
 				B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */,
 				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,

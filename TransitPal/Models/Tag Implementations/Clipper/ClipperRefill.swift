@@ -20,7 +20,7 @@ class ClipperRefill: TransitRefill {
 
         self.Timestamp = ClipperTag.convertDate(TimeInterval([UInt8](data).toInt(0x4, 4)))
 
-        self.MachineID = String(dataArr.toInt(0x8, 2))
+        self.MachineID = data[8...11].hexEncodedString()
         self.Amount = Int16(dataArr.toInt(0xe, 2))
     }
 }

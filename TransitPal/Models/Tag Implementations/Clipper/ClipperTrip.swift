@@ -41,22 +41,22 @@ class ClipperTrip: TransitTrip {
 
         let toStationID = Int(dataArr.toInt(0x16, 2))
 
-        if let fromStation = clipperData.getStation(Int(agencyID), fromStationID) {
+        if let fromStation = ClipperData.getStation(Int(agencyID), fromStationID, false) {
             self.From = fromStation
         } else {
             print("Cant get from station \(fromStationID)");
         }
 
-        if let toStation = clipperData.getStation(Int(agencyID), toStationID) {
+        if let toStation = ClipperData.getStation(Int(agencyID), toStationID, true) {
             self.To = toStation
         } else {
-            print("Cant get to station \(toStationID)");
+            print("Cant get to station \(toStationID)", agencyID, toStationID, self);
         }
 
         self.Route = Int(dataArr.toInt(0x1c, 2))
         self.VehicleNumber = Int(dataArr.toInt(0xa, 2))
 
-        self.TransportCode = TransportType(dataArr.toInt(0x1e, 2), self.Agency)
+        self.TransportCode = TransportType(dataArr.toInt(0x1e, 2), agencyID, self.Agency.defaultTransport)
     }
 
     override var debugDescription: String {
@@ -69,24 +69,33 @@ class ClipperTrip: TransitTrip {
 }
 
 fileprivate extension TransportType {
-    init(_ code: Int, _ agency: Operator) {
-        // FIXME: Lookup Clipper operator to fix this logic.
-        /*if code == 0x62 {
-            if agency == .BayFerry || agency == .GoldenGateFerry {
-                self = .ferry
-            } else if agency == .Caltrain {
-                self = .train
-            } else {
-                self = .tram
+    init(_ code: Int, _ agencyID: Int, _ fallback: TransportType) {
+        switch code {
+        case 0x62:
+            if let agency = ClipperData.ClipperAgency(rawValue: agencyID) {
+                switch agency {
+                case .BayFerry, .GoldenGateFerry:
+                    self = .ferry
+                    return
+                case .Caltrain:
+                    self = .train
+                    return
+                default:
+                    self = .tram
+                    return
+                }
             }
-        } else*/ if code == 0x6f {
+            self = .tram
+            return
+        case 0x6f:
             self = .metro
-        } else if code == 0x61 || code == 0x75 {
+            return
+        case 0x61, 0x75:
             self = .bus
-        } else {
-            self = .other
+            return
+        default:
+            self = fallback
+            return
         }
-
-        self = agency.defaultTransport
     }
 }
