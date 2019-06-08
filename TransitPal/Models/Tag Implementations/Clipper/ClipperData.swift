@@ -22,7 +22,7 @@ public class ClipperData {
         case Caltrain_8Ride = 0x173
         case BART = 0x04
         case Caltrain = 0x06
-        case BayFerry = 0x1b
+        case SanFranciscoBayFerry = 0x1b
         case GoldenGateFerry = 0x19
         case GoldenGateTransit = 0x0b
         case MUNI = 0x12

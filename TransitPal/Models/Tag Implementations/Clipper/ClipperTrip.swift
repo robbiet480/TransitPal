@@ -62,7 +62,7 @@ fileprivate extension TransportType {
         case 0x62:
             if let agency = ClipperData.ClipperAgency(rawValue: agencyID) {
                 switch agency {
-                case .BayFerry, .GoldenGateFerry:
+                case .SanFranciscoBayFerry, .GoldenGateFerry:
                     self = .ferry
                     return
                 case .Caltrain:
