@@ -27,6 +27,7 @@
 		B66B91A922A8C37100046130 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = B66B91A822A8C37100046130 /* PromiseKit */; };
 		B66B91AB22A8C39E00046130 /* stations.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B91AA22A8C39E00046130 /* stations.pb.swift */; };
 		B66B91AD22A8C55100046130 /* clipper.mdst in Resources */ = {isa = PBXBuildFile; fileRef = B66B91AC22A8C3E300046130 /* clipper.mdst */; };
+		B67C938622AB46BB0033AC30 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67C938522AB46BB0033AC30 /* WelcomeView.swift */; };
 		B69D975722A8FC6E00FA52E4 /* MdST.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D975622A8FC6E00FA52E4 /* MdST.swift */; };
 		B6AF4A7222A73FBE00F9E005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */; };
 		B6AF4A7422A73FBE00F9E005 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */; };
@@ -34,7 +35,6 @@
 		B6AF4A7B22A73FC100F9E005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AF4A7A22A73FC100F9E005 /* Preview Assets.xcassets */; };
 		B6AF4A7E22A73FC100F9E005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AF4A7C22A73FC100F9E005 /* LaunchScreen.storyboard */; };
 		B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8622A7403E00F9E005 /* MiFare.swift */; };
-		B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8822A7412700F9E005 /* NFCReader.swift */; };
 		B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */; };
 		B6AF4A8F22A74EE900F9E005 /* ClipperTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */; };
 		B6AF4A9322A752D800F9E005 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF4A9222A752D800F9E005 /* Utils.swift */; };
@@ -69,6 +69,7 @@
 		B63B88F422A7BCD900207C32 /* CardHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHistoryList.swift; sourceTree = "<group>"; };
 		B66B91AA22A8C39E00046130 /* stations.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stations.pb.swift; path = TransitPal/Models/MDST/stations.pb.swift; sourceTree = SOURCE_ROOT; };
 		B66B91AC22A8C3E300046130 /* clipper.mdst */ = {isa = PBXFileReference; lastKnownFileType = file; path = clipper.mdst; sourceTree = "<group>"; };
+		B67C938522AB46BB0033AC30 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B69D975622A8FC6E00FA52E4 /* MdST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdST.swift; sourceTree = "<group>"; };
 		B6AF4A6E22A73FBE00F9E005 /* TransitPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		B6AF4A7F22A73FC100F9E005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6AF4A8522A73FD200F9E005 /* TransitPal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransitPal.entitlements; sourceTree = "<group>"; };
 		B6AF4A8622A7403E00F9E005 /* MiFare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiFare.swift; sourceTree = "<group>"; };
-		B6AF4A8822A7412700F9E005 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
 		B6AF4A8C22A743D400F9E005 /* ClipperRefill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperRefill.swift; sourceTree = "<group>"; };
 		B6AF4A8E22A74EE900F9E005 /* ClipperTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperTrip.swift; sourceTree = "<group>"; };
 		B6AF4A9222A752D800F9E005 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -177,7 +177,6 @@
 				B6E9DF1E22A8A94A00CA72D6 /* Views */,
 				B6AF4A7122A73FBE00F9E005 /* AppDelegate.swift */,
 				B6AF4A7322A73FBE00F9E005 /* SceneDelegate.swift */,
-				B6AF4A8822A7412700F9E005 /* NFCReader.swift */,
 				B6AF4A9222A752D800F9E005 /* Utils.swift */,
 				B6B2A66522AA11B10018A026 /* UserData.swift */,
 			);
@@ -222,6 +221,7 @@
 				B63B88F422A7BCD900207C32 /* CardHistoryList.swift */,
 				B6F8886D22AA187A001B31C3 /* TransitEventDetailView.swift */,
 				B6F8886B22AA1763001B31C3 /* TransitTripMapView.swift */,
+				B67C938522AB46BB0033AC30 /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,7 +355,6 @@
 				B6AF4A8D22A743D400F9E005 /* ClipperRefill.swift in Sources */,
 				B604530122AA00BA00CA41D6 /* FontAwesomeImageRepresentable.swift in Sources */,
 				B6B2A66622AA11B10018A026 /* UserData.swift in Sources */,
-				B6AF4A8922A7412700F9E005 /* NFCReader.swift in Sources */,
 				B6F59C7922A856EA00406986 /* ClipperData.swift in Sources */,
 				B6F8886C22AA1763001B31C3 /* TransitTripMapView.swift in Sources */,
 				B6AF4A8722A7403E00F9E005 /* MiFare.swift in Sources */,
@@ -363,6 +362,7 @@
 				B604530422AA00BA00CA41D6 /* FontAwesomeImageView.swift in Sources */,
 				B60452FB22AA00BA00CA41D6 /* FontAwesomeStateRequirement.swift in Sources */,
 				B60452FC22AA00BA00CA41D6 /* FontAwesomeExtension.swift in Sources */,
+				B67C938622AB46BB0033AC30 /* WelcomeView.swift in Sources */,
 				B6F59C7122A8562F00406986 /* TransitTag.swift in Sources */,
 				B60452FF22AA00BA00CA41D6 /* FontAwesomeBarButtonItem.swift in Sources */,
 				B66B91AB22A8C39E00046130 /* stations.pb.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import SwiftUI
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate, NFCReaderDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate {
     var window: UIWindow?
 
     var userData: UserData = UserData()
@@ -21,11 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate,
 
         // Use a UIHostingController as window root view controller
 
-        self.userData.nfcReader.tagDelegate = self
-
         let window = ColorChangingWindow(frame: UIScreen.main.bounds)
         window.styleDelegate = self
-        window.rootViewController = UIHostingController(rootView: CardHistoryList().environmentObject(self.userData))
+        window.rootViewController = UIHostingController(rootView: WelcomeView().environmentObject(self.userData))
         self.window = window
         window.makeKeyAndVisible()
     }
@@ -61,10 +59,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate,
     func interfaceStyleChanged(_ previousStyle: UIUserInterfaceStyle, _ newStyle: UIUserInterfaceStyle) {
         // Pass through style changes
         self.userData.colorScheme = newStyle.colorScheme
-    }
-
-    func transitTagProcessed(_ tag: TransitTag) {
-        self.userData.processedTag = tag
     }
 
 }

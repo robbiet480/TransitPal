@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import CoreNFC
 
 struct CardHistoryList : View {
     @EnvironmentObject var userData: UserData
@@ -22,47 +21,6 @@ struct CardHistoryList : View {
         })
     }
 
-    var body: some View {
-
-        let clearButton = Button(action: { self.userData.processedTag = nil }) { Text("Clear") }
-        let scanButton = Button(action: { self.startScan() }) { Text("Scan") }
-
-        let sortedDates = self.eventsByDate.keys.sorted().reversed().identified(by: \.self)
-
-        var title: String = "TransitPal"
-
-        if let tag = self.userData.processedTag {
-            title = tag.description
-        }
-
-        return NavigationView {
-            List {
-                if self.userData.processedTag != nil {
-                    Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
-                }
-
-                ForEach(sortedDates) { (date: Date) in
-                    Section(header: Text(self.dateFormatter.string(from: date))) {
-                        ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
-                            // PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
-                            Button(action: {
-                                self.selectedEvent = event
-                            }) {
-                                TransitEventRow(event: event)
-                            }
-                        }
-                    }
-                }
-            }
-            .navigationBarTitle(Text(title))
-            .navigationBarItems(leading: clearButton, trailing: scanButton)
-            }
-            .tabItemLabel(Text("Cards"))
-            .presentation(self.selectedEvent != nil ? Modal(TransitEventDetailView(event: self.selectedEvent!), onDismiss: {
-                self.selectedEvent = nil
-            }) : nil)
-    }
-
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -70,10 +28,31 @@ struct CardHistoryList : View {
         return formatter
     }()
 
-    func startScan() {
-        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092], delegate: self.userData.nfcReader)
-        readerSession?.alertMessage = "Hold your iPhone near an NFC transit card."
-        readerSession?.begin()
+    var body: some View {
+        let sortedDates = self.eventsByDate.keys.sorted().reversed().identified(by: \.self)
+
+        return List {
+            if self.userData.processedTag != nil {
+                Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
+            }
+
+            ForEach(sortedDates) { (date: Date) in
+                Section(header: Text(self.dateFormatter.string(from: date))) {
+                    ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
+                        // PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
+                        Button(action: {
+                            self.selectedEvent = event
+                        }) {
+                            TransitEventRow(event: event)
+                        }
+                    }
+                }
+            }
+        }
+        .presentation(self.selectedEvent != nil ? Modal(TransitEventDetailView(event: self.selectedEvent!), onDismiss: {
+            self.selectedEvent = nil
+        }) : nil)
+        .navigationBarTitle(Text(self.userData.processedTag?.description ?? "New Tag"))
     }
 }
 
