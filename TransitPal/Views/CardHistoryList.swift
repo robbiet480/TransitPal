@@ -13,6 +13,8 @@ struct CardHistoryList : View {
 
     @State var selectedEvent: TransitEvent?
 
+    @Environment(\.colorScheme) var scheme
+
     var eventsByDate: [Date: [TransitEvent]] {
         guard let tag = self.userData.processedTag else { return [:] }
         return Dictionary(grouping: tag.Events, by: { (event: TransitEvent) -> Date in

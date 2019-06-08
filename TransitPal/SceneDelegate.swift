@@ -9,7 +9,7 @@
 import UIKit
 import SwiftUI
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     var userData: UserData = UserData()
@@ -21,8 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate 
 
         // Use a UIHostingController as window root view controller
 
-        let window = ColorChangingWindow(frame: UIScreen.main.bounds)
-        window.styleDelegate = self
+        let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: WelcomeView().environmentObject(self.userData))
         self.window = window
         window.makeKeyAndVisible()
@@ -54,50 +53,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InterfaceStyleDelegate 
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-
-    func interfaceStyleChanged(_ previousStyle: UIUserInterfaceStyle, _ newStyle: UIUserInterfaceStyle) {
-        // Pass through style changes
-        self.userData.colorScheme = newStyle.colorScheme
-    }
-
-}
-
-protocol InterfaceStyleDelegate {
-    func interfaceStyleChanged(_ previousStyle: UIUserInterfaceStyle, _ newStyle: UIUserInterfaceStyle)
-}
-
-class ColorChangingWindow: UIWindow {
-    var styleDelegate: InterfaceStyleDelegate?
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if let previousStyle = previousTraitCollection?.userInterfaceStyle, previousStyle != self.traitCollection.userInterfaceStyle {
-            self.styleDelegate?.interfaceStyleChanged(previousStyle, self.traitCollection.userInterfaceStyle)
-        }
-    }
-}
-
-extension UIUserInterfaceStyle: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .dark:
-            return "Dark"
-        case .light:
-            return "Light"
-        case .unspecified:
-            return "Unspecified"
-        @unknown default:
-            return "Unknown"
-        }
-    }
-
-    var colorScheme: ColorScheme? {
-        if self == .dark {
-            return .dark
-        } else if self == .light {
-            return .light
-        }
-
-        return nil
     }
 }
