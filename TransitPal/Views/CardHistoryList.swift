@@ -12,6 +12,8 @@ import CoreNFC
 struct CardHistoryList : View {
     @EnvironmentObject var userData: UserData
 
+    @State var selectedEvent: TransitEvent?
+
     var eventsByDate: [Date: [TransitEvent]] {
         guard let tag = self.userData.processedTag else { return [:] }
         return Dictionary(grouping: tag.Events, by: { (event: TransitEvent) -> Date in
@@ -42,12 +44,23 @@ struct CardHistoryList : View {
                 ForEach(sortedDates) { (date: Date) in
                     Section(header: Text(self.dateFormatter.string(from: date))) {
                         ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
-                            PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
+                            // PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
+                            Button(action: {
+                                self.selectedEvent = event
+                            }) {
+                                TransitEventRow(event: event)
+                            }
                         }
                     }
                 }
-            }.navigationBarTitle(Text(title)).navigationBarItems(leading: clearButton, trailing: scanButton)
-        }
+            }
+            .navigationBarTitle(Text(title))
+            .navigationBarItems(leading: clearButton, trailing: scanButton)
+            }
+            .tabItemLabel(Text("Cards"))
+            .presentation(self.selectedEvent != nil ? Modal(TransitEventDetailView(event: self.selectedEvent!), onDismiss: {
+                self.selectedEvent = nil
+            }) : nil)
     }
 
     var dateFormatter: DateFormatter = {
