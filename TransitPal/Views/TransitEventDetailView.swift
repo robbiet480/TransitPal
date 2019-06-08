@@ -43,12 +43,12 @@ struct TransitEventDetailView : View {
                     HStack {
                         Text(verbatim: "From").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).From.name.english)
+                        Text(verbatim: (event as! TransitTrip).From.bestName(false))
                     }
                     HStack {
                         Text(verbatim: "To").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).To.name.english)
+                        Text(verbatim: (event as! TransitTrip).To.bestName(false))
                     }
                     HStack {
                         Text(verbatim: "Fare").bold()
