@@ -504,6 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TransitPal/Resources/TransitPal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "TransitPal/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = UTQFCBPQRF;
 				ENABLE_PREVIEWS = YES;
@@ -525,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TransitPal/Resources/TransitPal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "TransitPal/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = UTQFCBPQRF;
 				ENABLE_PREVIEWS = YES;

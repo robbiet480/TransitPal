@@ -22,7 +22,7 @@ final class UserData: NSObject, BindableObject, NFCTagReaderSessionDelegate {
     }
 
     func startScan() {
-        let readerSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092], delegate: self)
+        let readerSession = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
         readerSession?.alertMessage = "Hold your iPhone near an NFC transit card."
         readerSession?.begin()
     }
