@@ -22,6 +22,10 @@ class ClipperTag: TransitTag {
         return "Clipper"
     }
 
+    override var timezone: TimeZone {
+        return TimeZone(identifier: "America/Los_Angeles")!
+    }
+
     override func importTag(_ foundTag: NFCNDEFTag) -> Promise<TransitTag> {
         guard let miFareTag = foundTag as? NFCMiFareTag else {
             fatalError("Was given a mifare tag that wasn't actually mifare!!!")

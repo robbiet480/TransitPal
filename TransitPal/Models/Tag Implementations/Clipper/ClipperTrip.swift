@@ -24,7 +24,7 @@ class ClipperTrip: TransitTrip {
             self.ExitTimestamp = nil
         }
 
-        self.Fare = Int(dataArr.toInt(0x6, 2))
+        self.Fare = dataArr.toInt(0x6, 2)
 
         let agencyID = dataArr.toInt(0x2, 2)
         let agency = clipperData.Metadata.operators.first { $0.key == agencyID }
@@ -33,24 +33,29 @@ class ClipperTrip: TransitTrip {
 
         self.Agency = op
 
-        let fromStationID = Int(dataArr.toInt(0x14, 2))
+        let fromStationID = dataArr.toInt(0x14, 2)
 
-        let toStationID = Int(dataArr.toInt(0x16, 2))
+        let toStationID = dataArr.toInt(0x16, 2)
 
         if let fromStation = ClipperData.getStation(Int(agencyID), fromStationID, false) {
             self.From = fromStation
         } else {
-            print("Cant get from station \(fromStationID)");
+            print("Cant get from station \(MdST.buildStationID(Int(agencyID), fromStationID).hexString)", self)
         }
 
         if let toStation = ClipperData.getStation(Int(agencyID), toStationID, true) {
             self.To = toStation
         } else {
-            print("Cant get to station \(toStationID)", agencyID, toStationID, self);
+            print("Cant get to station \(MdST.buildStationID(Int(agencyID), toStationID).hexString)", self)
         }
 
-        self.Route = Int(dataArr.toInt(0x1c, 2))
-        self.VehicleNumber = Int(dataArr.toInt(0xa, 2))
+//        print("Transfer counter", dataArr.toInt(1, 1))
+//        print("Transfer agency", dataArr.toInt(2, 2).hexString)
+//        print("Transfers???", dataArr.toInt(4, 2).hexString)
+//        print("Subscription", dataArr.toInt(8, 2).hexString)
+
+        self.Route = dataArr.toInt(0x1c, 2)
+        self.VehicleNumber = dataArr.toInt(0xa, 2)
 
         self.Mode = TransportType(dataArr.toInt(0x1e, 2), agencyID, self.Agency.defaultTransport)
     }

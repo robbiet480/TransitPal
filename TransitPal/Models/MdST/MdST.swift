@@ -85,8 +85,12 @@ public class MdST {
         return
     }
 
+    static func buildStationID(_ agencyID: Int, _ stationID: Int) -> Int {
+        return (agencyID << 16 | stationID)
+    }
+
     func getStation(_ agencyID: Int, _ stationID: Int) -> Station? {
-        return self.Stations.first { $0.id == (agencyID << 16 | stationID) }
+        return self.Stations.first { $0.id == MdST.buildStationID(agencyID, stationID) }
     }
 
     func getOperator(_ agencyID: Int) -> Operator? {

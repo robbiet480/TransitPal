@@ -49,4 +49,8 @@ class TransitTag: CustomStringConvertible {
     var description: String {
         return "Unknown tag"
     }
+
+    var timezone: TimeZone {
+        fatalError("TransitTag.timezone is not implemented!")
+    }
 }

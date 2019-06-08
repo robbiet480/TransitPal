@@ -47,3 +47,9 @@ extension Data {
         return map { String(format: format, $0) }.joined()
     }
 }
+
+extension Int {
+    var hexString: String {
+        return String(format: "0x%x", self)
+    }
+}

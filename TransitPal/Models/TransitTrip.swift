@@ -18,7 +18,15 @@ class TransitTrip: TransitEvent {
     var Mode: TransportType = TransportType()
 
     override var debugDescription: String {
-        return "Timestamp: \(self.Timestamp), ExitTimestamp: \(self.ExitTimestamp), Fare: \(self.Fare), Agency: \(self.Agency.name.english), From: \(self.From.name.english), To: \(self.To.name.english), Route: \(self.Route), VehicleNumber: \(self.VehicleNumber), TransportCode: \(self.Mode)"
+        let fmt = DateFormatter()
+        fmt.dateStyle = .full
+        fmt.timeStyle = .full
+        fmt.timeZone = TimeZone(identifier: "America/Los_Angeles")!
+        var exitTimestampStr = "N/A"
+        if let ts = self.ExitTimestamp {
+            exitTimestampStr = fmt.string(from: ts)
+        }
+        return "Timestamp: \(fmt.string(from: self.Timestamp)), ExitTimestamp: \(exitTimestampStr), Fare: \(self.prettyFare), Agency: \(self.Agency.name.english), From: \(self.From.name.english), To: \(self.To.name.english), Route: \(self.Route), VehicleNumber: \(self.VehicleNumber), TransportCode: \(self.Mode)"
     }
 
     static func ==(lhs: TransitTrip, rhs: TransitTrip) -> Bool {
