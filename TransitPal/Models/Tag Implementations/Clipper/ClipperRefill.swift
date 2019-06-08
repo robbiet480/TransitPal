@@ -14,7 +14,7 @@ class ClipperRefill: TransitRefill {
 
         let dataArr = [UInt8](data)
 
-        guard let agency = clipperData.getOperator(dataArr.toInt(0x2, 2)) else { return nil }
+        guard let agency = ClipperData.StationsDB?.getOperator(dataArr.toInt(0x2, 2)) else { return nil }
 
         self.Agency = agency
 

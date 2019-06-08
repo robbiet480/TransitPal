@@ -27,7 +27,7 @@ class ClipperTrip: TransitTrip {
         self.Fare = dataArr.toInt(0x6, 2)
 
         let agencyID = dataArr.toInt(0x2, 2)
-        let agency = clipperData.Metadata.operators.first { $0.key == agencyID }
+        let agency = MdST("clipper")?.Metadata.operators.first { $0.key == agencyID }
 
         guard let op = agency?.value else { return nil }
 

@@ -29,8 +29,10 @@ public class ClipperData {
         case Unknown = 0x00
     }
 
+    static let StationsDB = MdST("clipper")
+
     static func getStation(_ agencyId: Int, _ stationId: Int, _ isEnd: Bool) -> Station? {
-        if let stationInDB = clipperData.getStation(agencyId, stationId) {
+        if let stationInDB = ClipperData.StationsDB?.getStation(agencyId, stationId) {
             return stationInDB
         }
 
