@@ -12,6 +12,8 @@ class TransitRefill: TransitEvent {
     var MachineID: String = ""
     var Amount: Int16 = 0
 
+    override init() {}
+    
     override var debugDescription: String {
         return "Agency: \(self.Agency), Timestamp: \(self.Timestamp), MachineID: \(self.MachineID), Amount: \(self.Amount)"
     }

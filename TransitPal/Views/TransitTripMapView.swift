@@ -27,7 +27,14 @@ struct TransitTripMapView: UIViewRepresentable {
 #if DEBUG
 struct TransitTripMapView_Previews : PreviewProvider {
     static var previews: some View {
-        TransitTripMapView(from: Station(), to: Station())
+        var fromStation = Station(nameOnly: "19th St. Oakland")
+        fromStation.latitude = 37.808350
+        fromStation.longitude = -122.268602
+        
+        var toStation = Station(nameOnly: "12th St. Oakland City Center")
+        toStation.latitude = 37.803768
+        toStation.longitude = -122.271450
+        return TransitTripMapView(from: fromStation, to: toStation)
     }
 }
 #endif

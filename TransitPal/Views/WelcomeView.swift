@@ -46,7 +46,38 @@ struct WelcomeView : View {
 #if DEBUG
 struct WelcomeView_Previews : PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        let refill = ClipperRefill()
+        var op = Operator()
+        op.name.english = "BART"
+        refill.Agency = op
+        refill.Amount = 2999
+        refill.MachineID = "1a2b3c4d"
+        
+        let trip = ClipperTrip()
+        trip.Timestamp = Date(timeIntervalSinceNow: -180)
+        trip.ExitTimestamp = Date()
+        trip.Fare = 200
+        var fromStation = Station(nameOnly: "19th St. Oakland")
+        fromStation.latitude = 37.808350
+        fromStation.longitude = -122.268602
+        trip.From = fromStation
+        
+        var toStation = Station(nameOnly: "12th St. Oakland City Center")
+        toStation.latitude = 37.803768
+        toStation.longitude = -122.271450
+        trip.To = toStation
+        trip.Agency = op
+        trip.Mode = .metro
+        
+        let userData = UserData()
+        let tag = TransitTag(.miFare)
+        tag.Balance = 5630
+        tag.Refills = [refill]
+        tag.Trips = [trip]
+        tag.Serial = "12345678"
+        userData.processedTag = tag
+        
+        return WelcomeView().environmentObject(userData)
     }
 }
 #endif

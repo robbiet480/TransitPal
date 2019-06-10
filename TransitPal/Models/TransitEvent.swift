@@ -14,6 +14,8 @@ class TransitEvent: CustomDebugStringConvertible, Comparable, Identifiable {
     var Timestamp: Date = Date()
     var Agency: Operator = Operator()
 
+    init() {}
+    
     var debugDescription: String {
         return "Timestamp: \(self.Timestamp), Agency: \(self.Agency)"
     }

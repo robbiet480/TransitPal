@@ -90,7 +90,24 @@ struct TransitEventDetailView : View {
 #if DEBUG
 struct TransitTripView_Previews : PreviewProvider {
     static var previews: some View {
-        TransitEventDetailView(event: TransitEvent())
+        let trip = ClipperTrip()
+        trip.Timestamp = Date(timeIntervalSinceNow: -180)
+        trip.ExitTimestamp = Date()
+        trip.Fare = 200
+        var fromStation = Station(nameOnly: "19th St. Oakland")
+        fromStation.latitude = 37.808350
+        fromStation.longitude = -122.268602
+        trip.From = fromStation
+        
+        var toStation = Station(nameOnly: "12th St. Oakland City Center")
+        toStation.latitude = 37.803768
+        toStation.longitude = -122.271450
+        trip.To = toStation
+        var op = Operator()
+        op.name.english = "BART"
+        trip.Agency = op
+        trip.Mode = .metro
+        return TransitEventDetailView(event: trip)
     }
 }
 #endif

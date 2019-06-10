@@ -9,6 +9,8 @@
 import Foundation
 
 class ClipperRefill: TransitRefill {
+    override init() {}
+    
     init?(_ data: Data) {
         super.init()
 

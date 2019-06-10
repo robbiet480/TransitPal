@@ -17,6 +17,8 @@ class TransitTrip: TransitEvent {
     var VehicleNumber: Int = 0
     var Mode: TransportType = TransportType()
 
+    override init() {}
+    
     override var debugDescription: String {
         let fmt = DateFormatter()
         fmt.dateStyle = .full

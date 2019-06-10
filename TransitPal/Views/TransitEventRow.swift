@@ -43,7 +43,7 @@ struct TransitEventRow : View {
         return HStack {
             Image(uiImage: image)
             VStack(alignment: .leading) {
-                Text(verbatim: event.Agency.name.englishShort).font(.headline)
+                Text(verbatim: event.Agency.name.english).font(.headline)
                 Text(description).lineLimit(nil).font(.callout)
             }
             Spacer()
@@ -58,9 +58,32 @@ struct TransitEventRow : View {
 #if DEBUG
 struct TransitEventRow_Previews : PreviewProvider {
     static var previews: some View {
-        Group {
-            TransitEventRow(event: TransitRefill())
-            TransitEventRow(event: TransitTrip())
+        let refill = ClipperRefill()
+        var op = Operator()
+        op.name.english = "BART"
+        refill.Agency = op
+        refill.Amount = 2999
+        refill.MachineID = "1a2b3c4d"
+        
+        let trip = ClipperTrip()
+        trip.Timestamp = Date(timeIntervalSinceNow: -180)
+        trip.ExitTimestamp = Date()
+        trip.Fare = 200
+        var fromStation = Station(nameOnly: "19th St. Oakland")
+        fromStation.latitude = 37.808350
+        fromStation.longitude = -122.268602
+        trip.From = fromStation
+        
+        var toStation = Station(nameOnly: "12th St. Oakland City Center")
+        toStation.latitude = 37.803768
+        toStation.longitude = -122.271450
+        trip.To = toStation
+        trip.Agency = op
+        trip.Mode = .metro
+        
+        return List {
+            TransitEventRow(event: refill)
+            TransitEventRow(event: trip)
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }
