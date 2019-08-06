@@ -46,7 +46,6 @@ struct CardHistoryList : View {
             ForEach(self.eventsByDate.keys.sorted().reversed(), id: \.self) { (date: Date) in
                 Section(header: Text(self.dateFormatter.string(from: date))) {
                     ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
-                        // PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
                         Button(action: {
                             self.selectedEvent = event
                             self.showEvent = true
@@ -57,6 +56,7 @@ struct CardHistoryList : View {
                 }
             }
         }
+        .padding(.top) // https://stackoverflow.com/a/57243883/486182
         .sheet(isPresented: $showEvent) { TransitEventDetailView(event: self.selectedEvent!) }
         .navigationBarTitle(Text(self.userData.processedTag?.description ?? "New Tag"))
         .onAppear {

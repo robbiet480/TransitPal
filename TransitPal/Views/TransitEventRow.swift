@@ -43,12 +43,12 @@ struct TransitEventRow : View {
         return HStack {
             Image(uiImage: image)
             VStack(alignment: .leading) {
-                Text(verbatim: event.Agency.name.english).font(.headline)
-                Text(description).lineLimit(nil).font(.callout)
+                Text(event.Agency.name.english).font(.headline).lineLimit(1)
+                Text(description).font(.callout).lineLimit(1)
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(amount)
+                Text(amount).font(.callout)
                 Text(timestamp).font(.callout)
             }
         }
