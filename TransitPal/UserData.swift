@@ -13,11 +13,11 @@ import CoreNFC
 import PromiseKit
 
 final class UserData: NSObject, BindableObject, NFCTagReaderSessionDelegate {
-    private(set) var didChange = PassthroughSubject<UserData, Never>()
+    private(set) var willChange = PassthroughSubject<UserData, Never>()
 
     public var processedTag: TransitTag? {
         didSet {
-            self.didChange.send(self)
+            self.willChange.send(self)
         }
     }
 

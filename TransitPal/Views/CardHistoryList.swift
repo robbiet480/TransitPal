@@ -11,7 +11,9 @@ import SwiftUI
 struct CardHistoryList : View {
     @EnvironmentObject var userData: UserData
 
-    @State var selectedEvent: TransitEvent?
+    @State var selectedEvent: TransitEvent? = nil
+    
+    @State var showEvent = false
 
     @Environment(\.colorScheme) var scheme
 
@@ -30,20 +32,24 @@ struct CardHistoryList : View {
         return formatter
     }()
 
+    var header: Text {
+        if let tag = self.userData.processedTag {
+            return Text(verbatim: "Balance \(tag.prettyBalance)")
+        }
+        return Text(verbatim: "")
+    }
+    
     var body: some View {
-        let sortedDates = self.eventsByDate.keys.sorted().reversed().identified(by: \.self)
-
         return List {
-            if self.userData.processedTag != nil {
-                Text(verbatim: "Balance \(self.userData.processedTag!.prettyBalance)")
-            }
+            self.header
 
-            ForEach(sortedDates) { (date: Date) in
+            ForEach(self.eventsByDate.keys.sorted().reversed(), id: \.self) { (date: Date) in
                 Section(header: Text(self.dateFormatter.string(from: date))) {
                     ForEach(self.eventsByDate[date]!) { (event: TransitEvent) in
                         // PresentationButton(TransitEventRow(event: event), destination: TransitEventDetailView(event: event))
                         Button(action: {
                             self.selectedEvent = event
+                            self.showEvent = true
                         }) {
                             TransitEventRow(event: event)
                         }
@@ -51,10 +57,16 @@ struct CardHistoryList : View {
                 }
             }
         }
-        .presentation(self.selectedEvent != nil ? Modal(TransitEventDetailView(event: self.selectedEvent!), onDismiss: {
-            self.selectedEvent = nil
-        }) : nil)
+        .sheet(isPresented: $showEvent) { TransitEventDetailView(event: self.selectedEvent!) }
         .navigationBarTitle(Text(self.userData.processedTag?.description ?? "New Tag"))
+        .onAppear {
+            self.userData.processedTag = nil
+            self.userData.startScan()
+        }
+        .onDisappear {
+            // BUG: onDisappear is not called?
+            self.userData.processedTag = nil
+        }
     }
 }
 

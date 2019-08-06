@@ -13,14 +13,9 @@ struct WelcomeView : View {
 
     var body: some View {
         NavigationView {
-            Text("Welcome to TransitPal!").font(.largeTitle)
-
             VStack(alignment: .center, spacing: 20) {
-                NavigationButton(destination: CardHistoryList(), onTrigger: { () -> Bool in
-                    self.userData.processedTag = nil
-                    self.userData.startScan()
-                    return true
-                }) {
+                Text("Welcome to TransitPal!").font(.largeTitle)
+                NavigationLink(destination: CardHistoryList()) {
                     Text("Scan a tag")
                 }
                 HStack {
