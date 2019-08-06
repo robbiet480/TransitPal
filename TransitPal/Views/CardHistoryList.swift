@@ -34,9 +34,9 @@ struct CardHistoryList : View {
 
     var header: Text {
         if let tag = self.userData.processedTag {
-            return Text(verbatim: "Balance \(tag.prettyBalance)")
+            return Text("Balance \(tag.prettyBalance)")
         }
-        return Text(verbatim: "")
+        return Text("")
     }
     
     var body: some View {

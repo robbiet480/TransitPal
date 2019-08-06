@@ -31,56 +31,56 @@ struct TransitEventDetailView : View {
             VStack(alignment: .leading, spacing: 20) {
                 if isTrip {
                     HStack {
-                        Text(verbatim: "Tagged on").bold()
+                        Text("Tagged on").bold()
                         Spacer()
-                        Text(verbatim: Self.formatter.string(from: (event as! TransitTrip).Timestamp))
+                        Text(Self.formatter.string(from: (event as! TransitTrip).Timestamp))
                     }
                     HStack {
-                        Text(verbatim: "Tagged off").bold()
+                        Text("Tagged off").bold()
                         Spacer()
-                        Text(verbatim: Self.formatter.string(from: (event as! TransitTrip).ExitTimestamp!))
+                        Text(Self.formatter.string(from: (event as! TransitTrip).ExitTimestamp!))
                     }
                     HStack {
-                        Text(verbatim: "From").bold()
+                        Text("From").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).From.bestName(false))
+                        Text((event as! TransitTrip).From.bestName(false))
                     }
                     HStack {
-                        Text(verbatim: "To").bold()
+                        Text("To").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).To.bestName(false))
+                        Text((event as! TransitTrip).To.bestName(false))
                     }
                     HStack {
-                        Text(verbatim: "Fare").bold()
+                        Text("Fare").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).prettyFare)
+                        Text((event as! TransitTrip).prettyFare)
                     }
                     HStack {
-                        Text(verbatim: "Mode").bold()
+                        Text("Mode").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitTrip).Mode.description)
+                        Text((event as! TransitTrip).Mode.description)
                     }
                 } else {
                     HStack {
-                        Text(verbatim: "Date/Time").bold()
+                        Text("Date/Time").bold()
                         Spacer()
-                        Text(verbatim: Self.formatter.string(from: (event as! TransitRefill).Timestamp))
+                        Text(Self.formatter.string(from: (event as! TransitRefill).Timestamp))
                     }
                     HStack {
-                        Text(verbatim: "Amount").bold()
+                        Text("Amount").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitRefill).prettyAmount)
+                        Text((event as! TransitRefill).prettyAmount)
                     }
                     HStack {
-                        Text(verbatim: "Machine ID").bold()
+                        Text("Machine ID").bold()
                         Spacer()
-                        Text(verbatim: (event as! TransitRefill).MachineID)
+                        Text((event as! TransitRefill).MachineID)
                     }
                 }
                 HStack {
-                    Text(verbatim: "Agency").bold()
+                    Text("Agency").bold()
                     Spacer()
-                    Text(verbatim: event.Agency.name.english)
+                    Text(event.Agency.name.english)
                 }
             }.padding()
         }
