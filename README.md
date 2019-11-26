@@ -1,3 +1,7 @@
+# ABANDONED
+
+Metrodroid, which TransitPal was heavily inspired by, [now has its own fully functional iOS app](https://www.metrodroid.org/metrodroid/ios)! It should be in the App Store "soon". I strongly suggest using that instead of TransitPal. It was fun while it lasted!
+
 # TransitPal
 A open source Swift app for iOS that allows you to check your NFC transit card information. Uses [Core NFC](https://developer.apple.com/documentation/corenfc/) and [SwiftUI](https://developer.apple.com/xcode/swiftui/).
 
